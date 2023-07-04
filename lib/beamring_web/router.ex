@@ -17,7 +17,9 @@ defmodule BeamringWeb.Router do
   scope "/", BeamringWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", HomeLive, :home
+
+    get "/next", RingController, :next
   end
 
   # Other scopes may use custom stacks.
