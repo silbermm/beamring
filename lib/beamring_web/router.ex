@@ -20,6 +20,7 @@ defmodule BeamringWeb.Router do
     live "/", HomeLive, :home
 
     get "/next", RingController, :next
+    get "/previous", RingController, :previous
   end
 
   # Other scopes may use custom stacks.
