@@ -9,7 +9,11 @@ defmodule BeamringWeb.RingController do
     case Ring.previous(host) do
       "" ->
         Logger.error("invalid host: #{host}")
-        redirect(conn, to: ~p"/?error=invalid_host&action=previous")
+
+        conn
+        |> put_view(ErrorHTML)
+        |> put_status(404)
+        |> render("404_host.html", %{host: host, action: :previous})
 
       previous ->
         redirect(conn, external: previous)
@@ -17,14 +21,19 @@ defmodule BeamringWeb.RingController do
   end
 
   def previous(conn, params) do
-    Logger.error("invalid params: #{inspect params}")
-    redirect(conn, to: ~p"/?error=invalid_params&action=previous")
+    Logger.error("invalid params: #{inspect(params)}")
+
+    conn
+    |> put_view(ErrorHTML)
+    |> put_status(400)
+    |> render("400.html", %{action: :previous})
   end
 
   def next(conn, %{"host" => host}) do
     case Ring.next(host) do
       "" ->
         Logger.error("invalid host: #{host}")
+
         conn
         |> put_view(ErrorHTML)
         |> put_status(404)
@@ -36,7 +45,11 @@ defmodule BeamringWeb.RingController do
   end
 
   def next(conn, params) do
-    Logger.error("invalid params: #{inspect params}")
-    redirect(conn, to: ~p"/?error=invalid_params&action=next")
+    Logger.error("invalid params: #{inspect(params)}")
+
+    conn
+    |> put_view(ErrorHTML)
+    |> put_status(400)
+    |> render("400.html", %{action: :next})
   end
 end

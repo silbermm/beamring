@@ -40,6 +40,38 @@ defmodule BeamringWeb.RingControllerTest do
     end
   end
 
+  describe "not found" do
+    @describetag host: "https://noexist.com"
+
+    setup :browse_to
+
+    @tag action: :previous
+    test "when action is previous", %{conn: conn} do
+      assert html_response(conn, 404)
+    end
+
+    @tag action: :next
+    test "when action is next", %{conn: conn} do
+      assert html_response(conn, 404)
+    end
+  end
+
+  describe "invalid params" do
+    @describetag host: nil
+
+    setup :browse_to
+
+    @tag action: :previous
+    test "when action is previous", %{conn: conn} do
+      assert html_response(conn, 400)
+    end
+
+    @tag action: :next
+    test "when action is next", %{conn: conn} do
+      assert html_response(conn, 400)
+    end
+  end
+
   def browse_to(%{host: :first, conn: conn, all_hosts: all, action: action}) do
     [first | _] = all
 
@@ -59,6 +91,26 @@ defmodule BeamringWeb.RingControllerTest do
       case action do
         :next -> get(conn, ~p"/next?host=#{last}")
         :previous -> get(conn, ~p"/previous?host=#{last}")
+      end
+
+    %{conn: conn}
+  end
+
+  def browse_to(%{host: nil, conn: conn, action: action}) do
+    conn =
+      case action do
+        :next -> get(conn, ~p"/next")
+        :previous -> get(conn, ~p"/previous")
+      end
+
+    %{conn: conn}
+  end
+
+  def browse_to(%{host: hostname, conn: conn, action: action}) do
+    conn =
+      case action do
+        :next -> get(conn, ~p"/next?host=#{hostname}")
+        :previous -> get(conn, ~p"/previous?host=#{hostname}")
       end
 
     %{conn: conn}
