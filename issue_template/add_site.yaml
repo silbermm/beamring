@@ -1,0 +1,23 @@
+name: Add Site
+about: Add a Site
+title: "Add: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+                Thanks for wanting to add a new site to the Beamring!
+  - type: input
+    id: site
+    attributes:
+      label: URL
+      description: Add the URL to your site
+      placeholder: https://yoursite.com
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Why do you want to join this webring?
+    validations:
+      required: false 
