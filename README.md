@@ -1,6 +1,5 @@
-![Beamring Logo](priv/static/images/beamring-1.png "Beamring")
+![Beamring Logo](priv/static/images/beamring_word.png "Beamring")
 
-A simple WebRing for the BEAM community
 
 
 
