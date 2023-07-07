@@ -413,6 +413,7 @@ defmodule BeamringWeb.CoreComponents do
   Renders a header with title.
   """
   attr :class, :string, default: nil
+  attr :rest, :global, doc: "the arbitrary HTML attributes to add to the flash container"
 
   slot :inner_block, required: true
   slot :subtitle
@@ -422,10 +423,10 @@ defmodule BeamringWeb.CoreComponents do
     ~H"""
     <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
       <div>
-        <h1 class="text-lg font-semibold leading-8 text-zinc-800">
+        <h1 class="text-lg font-semibold leading-8 text-zinc-800 dark:text-gray-300" {@rest}>
           <%= render_slot(@inner_block) %>
         </h1>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
+        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600 dark:text-gray-100">
           <%= render_slot(@subtitle) %>
         </p>
       </div>
@@ -527,10 +528,10 @@ defmodule BeamringWeb.CoreComponents do
   def list(assigns) do
     ~H"""
     <div class="mt-14">
-      <dl class="-my-4 divide-y divide-zinc-100">
+      <dl class="-my-4 divide-y divide-zinc-100 dark:divide-zinc-500">
         <div :for={item <- @item} class="flex gap-4 py-4 text-sm leading-6 sm:gap-8">
-          <dt class="w-1/4 flex-none text-zinc-500"><%= item.title %></dt>
-          <dd class="text-zinc-700"><%= render_slot(item) %></dd>
+          <dt class="w-1/4 flex-none text-zinc-500 dark:text-gray-200"><%= item.title %></dt>
+          <dd class="text-zinc-700 dark:text-gray-50"><%= render_slot(item) %></dd>
         </div>
       </dl>
     </div>

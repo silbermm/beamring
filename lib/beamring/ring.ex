@@ -4,25 +4,33 @@ defmodule Beamring.Ring do
   """
 
   @sites [
-    "https://silbernagel.dev",
-    "https://readreplica.io"
+    %{
+      title: "Matt Silbernagel",
+      url: "https://silbernagel.dev",
+      description: "Blog and Notes about Elixir"
+    },
+    %{
+      title: "ReadReplica",
+      url: "https://readreplica.io",
+      description: "Software Engineering and System Design newsletter"
+    }
   ]
 
   @doc """
   Returns all sites in the ring
   """
-  @spec all :: [String.t()]
+  @spec all :: [map()]
   def all(), do: @sites
 
   @doc """
   Get the previous site
   """
-  @spec previous(String.t()) :: String.t()
+  @spec previous(String.t()) :: map()
   def previous(host) do
     host
     |> find_with_index()
     |> case do
-      nil -> ""
+      nil -> nil
       {_v, i} -> Enum.at(@sites, i - 1)
     end
   end
@@ -30,7 +38,7 @@ defmodule Beamring.Ring do
   @doc """
   Get the next site
   """
-  @spec next(String.t()) :: String.t()
+  @spec next(String.t()) :: map()
   def next(host) do
     size = length(@sites)
 
@@ -38,7 +46,7 @@ defmodule Beamring.Ring do
     |> find_with_index()
     |> case do
       nil ->
-        ""
+        nil
 
       {_v, i} ->
         if size == i + 1,
@@ -50,6 +58,6 @@ defmodule Beamring.Ring do
   defp find_with_index(host) do
     @sites
     |> Enum.with_index()
-    |> Enum.find(fn {v, _i} -> v == host end)
+    |> Enum.find(fn {mp, _i} -> mp.url == host end)
   end
 end

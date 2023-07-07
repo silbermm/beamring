@@ -1,22 +1,27 @@
 <header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
-    <div class="flex items-center gap-4">
+  <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-500 py-3 text-sm">
+    <div class="flex items-center gap-4 rounded-full px-4 py-2 dark:bg-violet-200 bg-brand/5">
       <a href="/">
         <img src={~p"/images/beamring-1.png"} width="36" />
       </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
+      <h1 class=" text-brand font-bold text-lg leading-6">
         Beamring
-      </p>
+      </h1>
     </div>
     <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://codeberg.org/ahappydeath/beamring" class="hover:text-zinc-700">
+
+      <.button id="dark-mode" phx-hook="ToggleColorMode">Dark</.button>
+      <.button id="light-mode" phx-hook="ToggleColorMode">Light</.button>
+      <.button id="system-mode" phx-hook="ToggleColorMode">System</.button>
+
+      <a href="https://codeberg.org/ahappydeath/beamring" class="hover:text-zinc-700 dark:text-gray-300">
         Source
       </a>
       <.link
         href={~p"/#getting-started"}
         class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
       >
-        Get Started <span aria-hidden="true">&rarr;</span>
+        Join the Webring<span aria-hidden="true">&rarr;</span>
       </.link>
     </div>
   </div>

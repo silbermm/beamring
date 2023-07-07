@@ -22,8 +22,39 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+let Hooks = {}
+Hooks.ToggleColorMode = {
+  mounted() {
+    var btn = this.el
+    if (btn.id === "dark-mode") {
+      if (localStorage.theme === 'dark') {
+        btn.classList.add("!bg-violet-400", "!text-black")
+      }
+    } else if (btn.id === "light-mode") {
+      if (localStorage.theme === 'light') {
+        btn.classList.add("!bg-violet-400", "!text-black")
+      }
+    } else {
+      if (!localStorage.theme) {
+        btn.classList.add("!bg-violet-400", "!text-black")
+      }
+    }
+
+    btn.addEventListener("click", e => {
+      if (btn.id === "dark-mode") {
+        localStorage.theme = 'dark'
+      } else if (btn.id === "light-mode") {
+        localStorage.theme = 'light'
+      } else {
+        localStorage.removeItem('theme')
+      }
+      window.location.reload();
+    })
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})

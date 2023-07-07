@@ -1,3 +1,4 @@
-<h1>
-  INVALID HOST <%= @host %> for action <%= @action %>
-</h1> 
+<.header>
+  Unable to find the site you requested. Here are the available sites.
+  <BeamringWeb.SiteList.render sites={Beamring.Ring.all()} />
+</.header>

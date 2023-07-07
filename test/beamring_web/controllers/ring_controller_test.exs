@@ -14,13 +14,13 @@ defmodule BeamringWeb.RingControllerTest do
     @tag host: :first, action: :next
     test "redirects to the next host", %{conn: conn, all_hosts: all_hosts} do
       [_, second | _] = all_hosts
-      assert redirected_to(conn) == second
+      assert redirected_to(conn) == second.url
     end
 
     @tag host: :last, action: :next
     test "redirects to the first host", %{conn: conn, all_hosts: all_hosts} do
       [first | _] = all_hosts
-      assert redirected_to(conn) == first
+      assert redirected_to(conn) == first.url
     end
   end
 
@@ -30,13 +30,13 @@ defmodule BeamringWeb.RingControllerTest do
     @tag host: :last, action: :previous
     test "redirects to the previous host", %{conn: conn, all_hosts: all_hosts} do
       [_, second | _] = Enum.reverse(all_hosts)
-      assert redirected_to(conn) == second
+      assert redirected_to(conn) == second.url
     end
 
     @tag host: :first, action: :previous
     test "redirects to the last host", %{conn: conn, all_hosts: all_hosts} do
       last = List.last(all_hosts)
-      assert redirected_to(conn) == last
+      assert redirected_to(conn) == last.url
     end
   end
 
@@ -77,8 +77,8 @@ defmodule BeamringWeb.RingControllerTest do
 
     conn =
       case action do
-        :next -> get(conn, ~p"/next?host=#{first}")
-        :previous -> get(conn, ~p"/previous?host=#{first}")
+        :next -> get(conn, ~p"/next?host=#{first.url}")
+        :previous -> get(conn, ~p"/previous?host=#{first.url}")
       end
 
     %{conn: conn}
@@ -89,8 +89,8 @@ defmodule BeamringWeb.RingControllerTest do
 
     conn =
       case action do
-        :next -> get(conn, ~p"/next?host=#{last}")
-        :previous -> get(conn, ~p"/previous?host=#{last}")
+        :next -> get(conn, ~p"/next?host=#{last.url}")
+        :previous -> get(conn, ~p"/previous?host=#{last.url}")
       end
 
     %{conn: conn}

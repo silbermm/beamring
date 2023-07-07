@@ -11,7 +11,7 @@ defmodule Beamring.RingTest do
 
   test "next/1" do
     [first, second | _] = Ring.all()
-    assert Ring.next(first) == second
+    assert Ring.next(first.url) == second
   end
 
   test "next/1 from the last element" do
@@ -19,12 +19,12 @@ defmodule Beamring.RingTest do
     [first | _] = all
     last = List.last(all)
 
-    assert Ring.next(last) == first
+    assert Ring.next(last.url) == first
   end
 
   test "previous/1" do
     [first, second | _] = Ring.all()
-    assert Ring.previous(second) == first
+    assert Ring.previous(second.url) == first
   end
 
   test "previous/1 from the first element" do
@@ -32,6 +32,6 @@ defmodule Beamring.RingTest do
     [first | _] = all
     last = List.last(all)
 
-    assert Ring.previous(first) == last
+    assert Ring.previous(first.url) == last
   end
 end

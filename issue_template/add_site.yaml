@@ -7,6 +7,14 @@ body:
       value: |
                 Thanks for wanting to add a new site to the Beamring!
   - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Add the title of your site
+      placeholder: My Site
+    validations:
+      required: true
+  - type: input
     id: site
     attributes:
       label: URL
@@ -15,9 +23,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: why
+    id: description
     attributes:
-      label: Why
-      description: Why do you want to join this webring?
+      label: Description
+      description: A description of the site 
     validations:
-      required: false 
+      required: false
