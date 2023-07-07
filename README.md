@@ -1,4 +1,4 @@
-![Beamring Logo](priv/static/images/beamring_word.png "Beamring")
+![Beamring Logo](priv/static/images/beamring-word.png "Beamring")
 
 
 
