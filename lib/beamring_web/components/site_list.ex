@@ -1,4 +1,7 @@
 defmodule BeamringWeb.SiteList do
+  @moduledoc """
+  A simple functional component for listing the sites in the ring
+  """
   use Phoenix.Component
 
   import BeamringWeb.CoreComponents
