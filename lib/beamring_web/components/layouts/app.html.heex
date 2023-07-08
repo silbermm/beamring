@@ -9,10 +9,11 @@
       </h1>
     </div>
     <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <.button id="dark-mode" phx-hook="ToggleColorMode">Dark</.button>
-      <.button id="light-mode" phx-hook="ToggleColorMode">Light</.button>
-      <.button id="system-mode" phx-hook="ToggleColorMode">System</.button>
-
+      <div>
+        <.button id="dark-mode" phx-hook="ToggleColorMode">Dark</.button>
+        <.button id="light-mode" phx-hook="ToggleColorMode">Light</.button>
+        <.button id="system-mode" phx-hook="ToggleColorMode">System</.button>
+      </div>
       <a
         href="https://github.com/silbermm/beamring"
         class="hover:text-zinc-700 dark:text-gray-300"
@@ -29,7 +30,7 @@
   </div>
 </header>
 
-<main class="px-4 py-20 sm:px-6 lg:px-8">
+<main class="px-4 py-20 sm:px-6 lg:px-8 min-h-[calc(100vh_-_140px)]">
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />
     <%= @inner_content %>
@@ -37,7 +38,7 @@
 </main>
 
 <footer class="bg-neutral-200 text-center">
-  <div class="bg-neutral-300 p-4 text-neutral-700 dark:bg-indigo-800 dark:text-indigo-200">
+  <div class="bg-neutral-300 p-4 text-neutral-700 dark:bg-indigo-900 dark:text-indigo-200">
     © 2023 Copyright:
     <a class="text-neutral-800 dark:text-indigo-400" href="https://beamring.io">
       Beamring
