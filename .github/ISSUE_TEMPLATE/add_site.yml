@@ -1,5 +1,5 @@
 name: Add a new Site
-description: Add a site the beamring
+description: Add a new site or blog to the Beamring
 title: "[Add]: "
 labels: ["new"]
 assignees:
@@ -20,7 +20,7 @@ body:
   - type: input
     id: site-url
     attributes:
-      label: URL of the Site
+      label: URL of the site or blog
       description: What is the sites URL?
       placeholder: https://mysite.com
     validations:
@@ -45,7 +45,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this site, you agree to follow our webrings [Code of Conduct](https://example.com)
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this webring's Code of Conduct
           required: true
