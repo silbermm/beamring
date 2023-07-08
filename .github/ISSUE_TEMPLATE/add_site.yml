@@ -1,0 +1,51 @@
+name: Add a new Site
+description: Add a site the beamring
+title: "[Add]: "
+labels: ["new"]
+assignees:
+  - silbermm
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for wanting to add your site to the BEAM webring!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: input
+    id: site-url
+    attributes:
+      label: URL of the Site
+      description: What is the sites URL?
+      placeholder: https://mysite.com
+    validations:
+      required: true
+  - type: input
+    id: site-name
+    attributes:
+      label: Name of the site or blog
+      description: What is the sites name?
+      placeholder: BEAM Blog
+    validations:
+      required: true
+  - type: textarea
+    id: site-description
+    attributes:
+      label: Description of the Site
+      description: What is the site's purpose?
+      placeholder: A blog about the intricacies of the BEAM's datastructures.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

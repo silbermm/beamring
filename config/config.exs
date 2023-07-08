@@ -7,10 +7,6 @@
 # General application configuration
 import Config
 
-config :beamring,
-  ecto_repos: [Beamring.Repo],
-  generators: [binary_id: true]
-
 # Configures the endpoint
 config :beamring, BeamringWeb.Endpoint,
   url: [host: "localhost"],

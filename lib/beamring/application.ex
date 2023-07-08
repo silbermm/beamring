@@ -10,8 +10,6 @@ defmodule Beamring.Application do
     children = [
       # Start the Telemetry supervisor
       BeamringWeb.Telemetry,
-      # Start the Ecto repository
-      Beamring.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Beamring.PubSub},
       # Start the Endpoint (http/https)

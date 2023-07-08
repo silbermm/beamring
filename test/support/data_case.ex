@@ -18,11 +18,6 @@ defmodule Beamring.DataCase do
 
   using do
     quote do
-      alias Beamring.Repo
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
       import Beamring.DataCase
     end
   end
