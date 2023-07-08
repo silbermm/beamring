@@ -528,7 +528,7 @@ defmodule BeamringWeb.CoreComponents do
   def list(assigns) do
     ~H"""
     <div class="mt-14">
-      <dl class="-my-4 divide-y divide-zinc-100 dark:divide-zinc-500">
+      <dl class="-my-4 divide-y divide-zinc-100 dark:divide-gray-700">
         <div :for={item <- @item} class="flex gap-4 py-4 text-sm leading-6 sm:gap-8">
           <dt class="w-1/4 flex-none text-zinc-500 dark:text-gray-200"><%= item.title %></dt>
           <dd class="text-zinc-700 dark:text-gray-50"><%= render_slot(item) %></dd>

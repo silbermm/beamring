@@ -25,7 +25,7 @@ defmodule Beamring.Ring do
   @doc """
   Get the previous site
   """
-  @spec previous(String.t()) :: map()
+  @spec previous(String.t()) :: map() | nil
   def previous(host) do
     host
     |> find_with_index()
@@ -38,7 +38,7 @@ defmodule Beamring.Ring do
   @doc """
   Get the next site
   """
-  @spec next(String.t()) :: map()
+  @spec next(String.t()) :: map() | nil
   def next(host) do
     size = length(@sites)
 

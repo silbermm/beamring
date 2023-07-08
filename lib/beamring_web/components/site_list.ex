@@ -4,6 +4,7 @@ defmodule BeamringWeb.SiteList do
   import BeamringWeb.CoreComponents
 
   attr :sites, :list, doc: "The list of sites to render"
+
   def render(assigns) do
     ~H"""
     <section>

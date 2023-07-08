@@ -22,12 +22,19 @@ defmodule BeamringWeb.HomeLive do
             href="https://en.wikipedia.org/wiki/Webring"
             class="text-brand hover:text-violet-700 hover:underline dark:text-violet-300 dark:hover:text-violet-500"
           >
-             Webring 
+            Webring
           </.link>
           for all things BEAM related including <b> Elixir </b>, <b> Erlang </b>
           and <b> Gleam </b>
         </:subtitle>
       </.header>
+    </div>
+
+    <div class="py-8">
+      <.header class="border-b border-zinc-500">
+        Current Sites
+      </.header>
+      <SiteList.render sites={@sites} />
     </div>
 
     <div class="py-8">
@@ -58,20 +65,13 @@ defmodule BeamringWeb.HomeLive do
       <p class="pt-2 dark:text-gray-400">
         <.link
           class="text-brand hover:text-violet-700 hover:underline dark:text-violet-300 dark:hover:text-violet-500"
-          href="https://codeberg.org/ahappydeath/beamring/issues/new?template=issue_template%2fadd_site.yaml"
+          href="https://github.com/silbermm/beamring/issues/new?assignees=silbermm&labels=new&projects=&template=add_site.yml&title=%5BAdd%5D%3A+"
           target="_blank"
         >
-          Create an issue
+          Fill out this form
         </.link>
-        with a link to your website.
+        with information about your site.
       </p>
-    </div>
-
-    <div class="py-8">
-      <.header class="border-b border-zinc-500">
-        Current Sites
-      </.header>
-      <SiteList.render sites={@sites} />
     </div>
     """
   end
