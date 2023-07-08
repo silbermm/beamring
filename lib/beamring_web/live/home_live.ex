@@ -6,8 +6,12 @@ defmodule BeamringWeb.HomeLive do
 
   @impl true
   def mount(_, _, socket) do
-    sites = Ring.all()
-    {:ok, assign(socket, sites: sites)}
+    socket =
+      socket
+      |> assign_new(:sites, fn -> Ring.all() end)
+      |> assign_new(:page_title, fn -> "Home" end)
+
+    {:ok, socket}
   end
 
   @impl true
