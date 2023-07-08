@@ -45,7 +45,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this site, you agree to follow our webrings [Code of Conduct](https://example.com)
+      description: By submitting this site, you agree to follow our webrings [Code of Conduct](/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this webring's Code of Conduct
           required: true
