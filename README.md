@@ -22,8 +22,6 @@ This is a extremely simple implementation, and I would like to keep it that way.
 *BUT*
 
 There are some improvements and features that may make sense:
-
-* I need to add a Terms of Service to indicate that we don't tolerate sites that are or promote intolerance.
 * I would like to add an RSS feed that aggregates all the sites RSS feeds together at some point.
 * Adding Metrics for each site could be nice.
 
