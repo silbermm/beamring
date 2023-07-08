@@ -39,3 +39,6 @@ npm-debug.log
 *.db
 *.db-*
 
+/priv/plts/dialyzer.plt
+/priv/plts/dialyzer.plt.hash
+
