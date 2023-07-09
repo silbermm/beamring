@@ -2,9 +2,10 @@
 <html lang="en" class="[scrollbar-gutter:stable]">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
     <meta name="csrf-token" content={get_csrf_token()} />
+    <meta name="robots" content="index, follow" />
 
     <link rel="icon" type="image/png" sizes="32x32" href={~p"/images/favicon-32x32.png"} />
     <link rel="icon" type="image/png" sizes="16x16" href={~p"/images/favicon-16x16.png"} />
@@ -13,7 +14,11 @@
       <%= assigns[:page_title] || "Beamring" %>
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+
+    <script defer data-domain="beamring.io" src="https://plausible.io/js/script.js">
     </script>
 
     <script defer type="text/javascript">
@@ -22,8 +27,6 @@
       } else {
         document.documentElement.classList.remove('dark');
       }
-    </script>
-    <script defer data-domain="beamring.io" src="https://plausible.io/js/script.js">
     </script>
   </head>
   <body class="bg-white antialiased dark:bg-gray-800">

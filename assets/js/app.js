@@ -48,6 +48,7 @@ Hooks.ToggleColorMode = {
       } else {
         localStorage.removeItem('theme')
       }
+
       window.location.reload();
     })
   }
