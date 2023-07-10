@@ -8,12 +8,8 @@
         Beamring
       </h1>
     </div>
+
     <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <div>
-        <.button id="dark-mode" phx-hook="ToggleColorMode">Dark</.button>
-        <.button id="light-mode" phx-hook="ToggleColorMode">Light</.button>
-        <.button id="system-mode" phx-hook="ToggleColorMode">System</.button>
-      </div>
       <a
         href="https://github.com/silbermm/beamring"
         class="hover:text-zinc-700 dark:text-gray-300"
@@ -22,15 +18,30 @@
       </a>
       <.link
         href={~p"/#getting-started"}
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
+        class="hidden rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80 md:block"
       >
         Join the Webring<span aria-hidden="true">&rarr;</span>
       </.link>
     </div>
   </div>
+
+  <div class="pt-4 flex flex-col justify-between">
+    <.link
+      href={~p"/#getting-started"}
+      class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80 block sm:hidden self-center mb-2"
+    >
+      Join the Webring <span aria-hidden="true">&rarr;</span>
+    </.link>
+
+    <div class="self-center sm:self-end">
+      <.button id="dark-mode" phx-hook="ToggleColorMode">Dark</.button>
+      <.button id="light-mode" phx-hook="ToggleColorMode">Light</.button>
+      <.button id="system-mode" phx-hook="ToggleColorMode">System</.button>
+    </div>
+  </div>
 </header>
 
-<main class="px-4 py-20 sm:px-6 lg:px-8 min-h-[calc(100vh_-_140px)]">
+<main class="px-4 py-6 sm:px-6 lg:px-8 min-h-[calc(100vh_-_140px)]">
   <div class="mx-auto max-w-2xl">
     <.flash_group flash={@flash} />
     <%= @inner_content %>
