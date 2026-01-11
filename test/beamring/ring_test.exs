@@ -6,7 +6,7 @@ defmodule Beamring.RingTest do
   test "all/0" do
     all = Ring.all()
     refute Enum.empty?(all)
-    assert length(all) == 2
+    assert length(all) == 3
   end
 
   test "next/1" do

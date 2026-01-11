@@ -13,6 +13,11 @@ defmodule Beamring.Ring do
       title: "ReadReplica",
       url: "https://readreplica.io",
       description: "Software Engineering and System Design newsletter"
+    },
+    %{
+      title: "James Munsch",
+      url: "https://jamesmunsch.com",
+      description: ""
     }
   ]
 
